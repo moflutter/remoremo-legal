@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Technical information for REMOREMO"><title>Technical information · REMOREMO</title><link rel="stylesheet" href="../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header><a class="brand" href="../">REMOREMO</a><nav aria-label="Legal navigation"><a href="../terms/">Terms of Service</a><a href="../privacy/">Privacy Policy</a></nav></header><main id="main"><article aria-label="Document text"><h1>REMOREMO CONNECTION AND DATA INFORMATION</h1>
+<p>This document describes the current implementation. It is technical information rather than a commitment to keep particular features, limits or timings unchanged. The Terms of Service and Privacy Policy address legal conditions and data handling.</p>
+<section><h2>CONNECTION ROUTES</h2>
+<p>Native REMOREMO connections can use a local TLS route or supported Direct P2P connections. A device being on Wi-Fi does not by itself mean signaling is unused: fallback may use Direct. Internet pairing needs compatible Client, Host and signaling versions and a network on which Direct P2P can be established. The current service exchanges connection-setup messages rather than relaying screen or input traffic. RDP and VNC connections use their selected servers and settings.</p>
+</section>
+<section><h2>PAIRING AND SECURITY</h2>
+<p>The current QR invitation lasts up to 300 seconds. Its authentication, device-key proof, Host approval and trust-persistence steps precede a normal new-device session. Native transport protection depends on the route; operating-system key facilities also vary by device and the identity originally created. These details do not guarantee that a device, network or future version is free of vulnerabilities.</p>
+</section>
+<section><h2>HOSTED STATE</h2>
+<p>Ordinary signaling persists Host fingerprints, trusted device-key identifiers, presence, replay, request-limit and pending state in Cloudflare Durable Objects. Some message-validity windows are bounded by 180 seconds and ordinary request-rate calculations generally use a 60-second window. These are not uniform storage-erasure deadlines. Expired rate records can remain until pruning runs, and ordinary device identifiers remain until replaced or removed as service state changes.</p>
+<p>Invitation-room cleanup retires socket attachments and removes peer identifiers, request nonces and IP-derived records from its stored state while keeping a closed marker. Provider infrastructure records and backups are separate from application-state cleanup.</p>
+</section>
+<section><h2>LOCAL STORAGE AND UPDATES</h2>
+<p>App support files, device keys and trust information have separate storage lifecycles. Reinstalling an app does not necessarily create a new identity or erase Keychain items. Use the product&#x27;s device-management controls where appropriate. Updating is designed to preserve existing identity and trust information; do not delete those records merely to install an update.</p>
+</section>
+<section><h2>SERVICE LIMITS</h2>
+<p>Connection and traffic limits may change for capacity, cost, technical or security reasons. No particular quota is specified by this document. Service-wide limits do not imply individual tracking or a finding that a particular user has misused the service.</p>
+</section>
+<p class="document-date">Published: 9 November 2026.</p></article></main><footer>REMOREMO · <a href="../technical-information/">Technical information</a><br>Contact: <a href="mailto:motoki.furusawa@gmail.com">motoki.furusawa@gmail.com</a></footer></body></html>
